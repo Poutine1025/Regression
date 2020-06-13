@@ -2,4 +2,5 @@
 
 export(LinearReg)
 export(LogisticReg)
+export(colRidge2)
 useDynLib(regressionCpp)

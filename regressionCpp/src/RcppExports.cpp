@@ -7,6 +7,19 @@
 
 using namespace Rcpp;
 
+// col_ridge_2
+Eigen::MatrixXd col_ridge_2(Eigen::MatrixXd Y, Eigen::MatrixXd X, Eigen::VectorXd lambda);
+RcppExport SEXP _regressionCpp_col_ridge_2(SEXP YSEXP, SEXP XSEXP, SEXP lambdaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Eigen::MatrixXd >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< Eigen::MatrixXd >::type X(XSEXP);
+    Rcpp::traits::input_parameter< Eigen::VectorXd >::type lambda(lambdaSEXP);
+    rcpp_result_gen = Rcpp::wrap(col_ridge_2(Y, X, lambda));
+    return rcpp_result_gen;
+END_RCPP
+}
 // linear_regression
 Rcpp::List linear_regression(Eigen::MatrixXd data);
 RcppExport SEXP _regressionCpp_linear_regression(SEXP dataSEXP) {
@@ -31,6 +44,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_regressionCpp_col_ridge_2", (DL_FUNC) &_regressionCpp_col_ridge_2, 3},
     {"_regressionCpp_linear_regression", (DL_FUNC) &_regressionCpp_linear_regression, 1},
     {"_regressionCpp_logistic_regression", (DL_FUNC) &_regressionCpp_logistic_regression, 1},
     {NULL, NULL, 0}
